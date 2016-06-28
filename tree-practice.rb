@@ -12,34 +12,17 @@ end
 # Added Fun: If there are duplicate operators, don't print them separately, but
 # instead print a tally of all operators found.
 def find_ops(node)
-  # base case
   return if node == nil
   if (node.value == "-" ||node.value ==  "+" ||node.value ==  "/" ||node.value ==  "%")
     puts node.value
   end
   find_ops(node.left)
   find_ops(node.right)
-
-  # data = {}
-  # if node == nil
-  #   puts data
-  #   return
-  # end
-  # if (node.value == "-" ||node.value ==  "+" ||node.value ==  "/" ||node.value ==  "%")
-  #   if data[node.value]
-  #     data[node.value] += 1
-  #   else
-  #     data[node.value] = 1
-  #   end
-  # find_ops(node.left)
-  # find_ops(node.right)
-  # end 
 end
 
 # Write a method that returns the count of non-operators (in this case,
 # leaves) in the tree. _Added Fun: print the level of the tree that each
 # leaf appears on.
-
 def leaves(node)
   return if node == nil
   if (node.value != "-" && node.value !=  "+" && node.value !=  "/" && node.value !=  "%")
@@ -47,12 +30,9 @@ def leaves(node)
   end
   leaves(node.left)
   leaves(node.right)
-
 end
 
 # Write methods to print the tree in prefix and postfix notations.
-
-
 def print_infix(node)
   return if node == nil
   print_infix(node.left)
@@ -118,16 +98,17 @@ end
 #   end
 # end
 
-
-# root = TreeNode.new("+")
-# root.left = TreeNode.new("3")
-# root.right = TreeNode.new("2")
-
+###### TESTS ######
 root = TreeNode.new('-')
 root.left = TreeNode.new('+')
 root.left.left = TreeNode.new('3')
 root.left.right = TreeNode.new('2')
 root.right = TreeNode.new('10')
+
+# root = TreeNode.new("+")
+# root.left = TreeNode.new("3")
+# root.right = TreeNode.new("2")
+
 
 # eval(root)
 
